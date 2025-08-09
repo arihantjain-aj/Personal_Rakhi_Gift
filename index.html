@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raksha Bandhan Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(-45deg, #ffdee9, #b5fffc, #ffe6f0, #fff0f5);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .card-container {
+            position: relative;
+            width: 400px;
+            height: 580px;
+            margin: 100px auto;
+            perspective: 1500px;
+        }
+
+        /* Inside of card */
+        .card-inside {
+            position: absolute;
+            width: 400px;
+            height: 580px;
+            background: url('royale-bg-with-brother-sister.png') no-repeat center;
+            background-size: cover;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Front halves */
+        .front-half {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to bottom right, #ff99cc, #ffccff);
+            color: white;
+            font-family: 'Pacifico', cursive;
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 0 0 15px #fff;
+            border-radius: 15px 0 0 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform-origin: left center;
+            transition: transform 1s ease-in-out;
+            backface-visibility: hidden;
+            z-index: 2;
+        }
+
+        .front-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: url('leftdoor.png') no-repeat center;
+            background-size: cover;
+            border-radius: 15px 0 0 15px;
+            transform-origin: left center;
+        }
+
+        .front-right {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            background: url('rightdoor.png') no-repeat center;
+            background-size: cover;
+            border-radius: 0 15px 15px 0;
+            transform-origin: right center;
+        }
+
+
+
+        /* Open animation */
+        .open-left {
+            transform: rotateY(-180deg);
+        }
+
+        .open-right {
+            transform: rotateY(180deg);
+        }
+
+        /* Inside message */
+        .ribbon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            background-size: contain;
+            animation: ribbonSpin 4s linear infinite, ribbonBounce 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 8px rgba(255,182,193,0.8));
+        }
+
+        @keyframes ribbonSpin {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        @keyframes ribbonBounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(10px);
+            }
+        }
+
+        .heart {
+            font-size: 3em;
+            color: #ff6699;
+            animation: pulse 1s infinite, float 3s ease-in-out infinite;
+            text-shadow: 0 0 15px rgba(255,105,180,0.7);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Base styles remain unchanged */
+
+        /* Responsive for mobile devices */
+        @media (max-width: 600px) {
+            .card-container {
+                width: 90vw; /* Scale to 90% of screen width */
+                height: auto; /* Let height adjust naturally */
+                margin: 50px auto;
+            }
+
+            .card-inside {
+                width: 100%;
+                height: auto; /* Adjust height dynamically */
+                padding: 15px;
+                background-size: cover;
+            }
+
+            .front-half {
+                font-size: 1.5em; /* Slightly smaller text on doors */
+            }
+
+            .message {
+                font-size: 1em; /* Slightly smaller inside text */
+                line-height: 1.4;
+            }
+
+            .ribbon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .heart {
+                font-size: 2em;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 400px) {
+            .front-half {
+                font-size: 1.2em;
+            }
+
+            .message {
+                font-size: 0.9em;
+            }
+
+            .ribbon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .heart {
+                font-size: 1.8em;
+            }
+        }
+
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: white; /* white text */
+            font-weight: bold; /* bold text */
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* helps readability */
+        }
+
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <div class="card-inside">
+            <div class="ribbon"></div>
+            <div class="heart">❤️</div>
+            <div class="message">
+                You are my forever friend, my secret keeper, and my biggest cheerleader.<br>
+                On this Raksha Bandhan, I just want to say...<br>
+                I’m lucky to have you as my sister. 💫<br>
+                Love you always!
+            </div>
+        </div>
+
+        <div class="front-half front-left">
+
+        </div>
+        <div class="front-half front-right"></div>
+    </div>
+
+    <canvas id="sprinkles"></canvas>
+
+    <script>
+        const leftHalf = document.querySelector('.front-left');
+        const rightHalf = document.querySelector('.front-right');
+
+        document.querySelector('.card-container').addEventListener('click', () => {
+            leftHalf.classList.toggle('open-left');
+            rightHalf.classList.toggle('open-right');
+        });
+
+        // Sprinkles
+        const canvas = document.getElementById('sprinkles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        for (let i = 0; i < 150; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 4 + 1,
+                dx: (Math.random() - 0.5) * 1.2,
+                dy: (Math.random() - 0.5) * 1.2,
+                color: `hsla(${Math.random() * 360}, 100%, 70%, 0.9)`
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = p.color;
+                ctx.fill();
+                p.x += p.dx;
+                p.y += p.dy;
+                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+            });
+            requestAnimationFrame(draw);
+        }
+        draw();
+    </script>
+
+</body>
+</html>
