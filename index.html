@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -31,54 +31,39 @@
 
         .card-container {
             position: relative;
-            width: 400px;
-            height: 580px;
-            margin: 100px auto;
+            width: min(90vw, 400px);
+            aspect-ratio: 400 / 580;
+            margin: 50px auto;
             perspective: 1500px;
         }
 
-        /* Inside of card */
         .card-inside {
             position: absolute;
-            width: 400px;
-            height: 580px;
+            inset: 0;
             background: url('royale-bg-with-brother-sister.png') no-repeat center;
             background-size: cover;
             text-align: center;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             z-index: 1;
-            padding: 20px;
+            padding: 5%;
             box-sizing: border-box;
         }
 
-        /* Front halves */
         .front-half {
             position: absolute;
-            width: 50%;
+            top: 0;
             height: 100%;
-            background: linear-gradient(to bottom right, #ff99cc, #ffccff);
-            color: white;
-            font-family: 'Pacifico', cursive;
-            font-size: 2em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-shadow: 0 0 15px #fff;
-            border-radius: 15px 0 0 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transform-origin: left center;
+            width: 50%;
+            background-size: cover;
+            background-position: center;
             transition: transform 1s ease-in-out;
             backface-visibility: hidden;
             z-index: 2;
         }
 
         .front-left {
-            position: absolute;
-            top: 0;
             left: 0;
-            width: 50%;
-            height: 100%;
             background: url('leftdoor.png') no-repeat center;
             background-size: cover;
             border-radius: 15px 0 0 15px;
@@ -86,17 +71,12 @@
         }
 
         .front-right {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 50%;
-            height: 100%;
+            right: 0;
             background: url('rightdoor.png') no-repeat center;
             background-size: cover;
             border-radius: 0 15px 15px 0;
             transform-origin: right center;
         }
-
 
 
         /* Open animation */
@@ -157,57 +137,9 @@
 
         /* Base styles remain unchanged */
 
-        /* Responsive for mobile devices */
         @media (max-width: 600px) {
             .card-container {
-                width: 90vw; /* Scale to 90% of screen width */
-                height: auto; /* Let height adjust naturally */
-                margin: 50px auto;
-            }
-
-            .card-inside {
-                width: 100%;
-                height: auto; /* Adjust height dynamically */
-                padding: 15px;
-                background-size: cover;
-            }
-
-            .front-half {
-                font-size: 1.5em; /* Slightly smaller text on doors */
-            }
-
-            .message {
-                font-size: 1em; /* Slightly smaller inside text */
-                line-height: 1.4;
-            }
-
-            .ribbon {
-                width: 80px;
-                height: 80px;
-            }
-
-            .heart {
-                font-size: 2em;
-            }
-        }
-
-        /* Extra small devices */
-        @media (max-width: 400px) {
-            .front-half {
-                font-size: 1.2em;
-            }
-
-            .message {
-                font-size: 0.9em;
-            }
-
-            .ribbon {
-                width: 70px;
-                height: 70px;
-            }
-
-            .heart {
-                font-size: 1.8em;
+                width: 95vw;
             }
         }
 
